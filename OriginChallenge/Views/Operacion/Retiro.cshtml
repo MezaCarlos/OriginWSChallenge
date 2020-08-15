@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Retiro";
+}
+
+<div class="row d-flex justify-content-center pb-3">
+    <div class="col-6 d-flex justify-content-end">
+        <a asp-action="Logout" asp-controller="Home" class="btn btn-link">Salir</a>
+    </div>
+</div>
+<form asp-action="ProcesarRetiro" asp-controller="Operacion" method="post">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div class="form-group">
+                <input type="text" class="form-control" name="monto" id="txtRetiro" maxlength="6" placeholder="Ingrese monto a retirar">
+                <small id="emailHelp" class="form-text text-muted">El monto debe ser inferior a 1 millón (1000000)</small>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-6 d-flex justify-content-center">
+            <partial name="_TecladoNumerico" />
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5">
+        <div class="col-6 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+            <button id="btnLimpiar" type="button" class="btn btn-secondary">Limpiar</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+
+    <script src="~/js/teclado_numerico.js"></script>
+    <script>
+
+        $('#teclado-numerico input ').tecladoNumerico('txtRetiro');
+
+        $('#btnLimpiar').click(function () {
+            $('#txtRetiro').val('');
+        })
+    </script>
+}

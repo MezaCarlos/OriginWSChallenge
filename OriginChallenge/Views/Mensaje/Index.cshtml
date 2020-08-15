@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="row d-flex justify-content-center pb-3">
+    <div class="col-6 d-flex justify-content-between">
+        <form asp-action="@TempData["Action"]" asp-controller="@TempData["Controller"]" method="post">
+            @foreach (var parametro in ViewBag.Parametros)
+            {
+                <input type="hidden" name="@parametro.Key" value="@parametro.Value" />
+            }
+
+            <button type="submit" class="btn btn-primary">Atrás</button>
+        </form>
+        
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center pb-3">
+    <div class="col-6 d-flex justify-content-center">
+        <div class="card @( Convert.ToBoolean(TempData["IsError"])  ? "border-danger" : "border-success" )  mb-3 w-100">
+            <div class="card-header @(Convert.ToBoolean(TempData["IsError"])  ? "bg-danger" : "bg-success" ) text-white">@(Convert.ToBoolean(TempData["IsError"]) ? "Ocurrío un inconveniente" : "Éxito!" )</div>
+            <div class="card-body">
+                <p>@Html.Raw(TempData["Mensaje"])</p>
+            </div>
+        </div>
+    </div>
+</div>

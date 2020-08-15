@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "PIN";
+}
+
+
+<div class="row d-flex justify-content-center pb-3">
+    <div class="col-6 d-flex justify-content-end">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-link">Salir</a>
+    </div>
+</div>
+<form asp-action="ValidarLogin" asp-controller="Home" method="post">
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div class="form-group">
+                <input type="text" class="form-control" name="pin" id="txtPin" maxlength="9" placeholder="Ingrese su PIN" readonly>
+                <small id="emailHelp" class="form-text text-muted">El PIN no puede superar los 9 digitos</small>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="numeroTarjeta" value="@ViewBag.NumeroTarjeta" />
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-6 d-flex justify-content-center">
+            <partial name="_TecladoNumerico" />
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5">
+        <div class="col-6 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+            <button id="btnLimpiar" type="button" class="btn btn-secondary">Limpiar</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/lib/Plugins/jquery.inputmask.js"></script>
+    <script src="~/js/teclado_numerico.js"></script>
+    <script>
+
+        $('#teclado-numerico input').tecladoNumerico('txtPin');
+
+        $('#btnLimpiar').click(function () {
+            $('#txtPin').val('');
+        })
+    </script>
+}
+
+

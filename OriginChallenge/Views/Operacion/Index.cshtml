@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Operaciones";
+}
+
+<div class="row d-flex justify-content-center pb-3">
+    <div class="col-6 d-flex justify-content-end">
+        <a asp-action="Logout" asp-controller="Home" class="btn btn-link">Salir</a>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center pt-5">
+    <div class="col-6 ">
+        <a asp-action="Balance" asp-controller="Operacion" class="btn btn-primary py-5 w-100">Balance</a>
+    </div>
+</div>
+<div class="row d-flex justify-content-center pt-5">
+    <div class="col-6 ">
+        <a asp-action="Retiro" asp-controller="Operacion" class="btn btn-primary py-5 w-100">Retiro</a>
+    </div>
+</div>

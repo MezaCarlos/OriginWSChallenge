@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Balance";
+}
+@model OriginChallenge.Models.Tarjeta
+
+<div class="row d-flex justify-content-center pb-3">
+    <div class="col-6 d-flex justify-content-between">
+        <a asp-action="Index" asp-controller="Operacion" class="btn btn-primary">Atrás</a>
+        <a asp-action="Logout" asp-controller="Home" class="btn btn-link">Salir</a>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h3 class="text-white">Información</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Número de tarjeta:</td>
+                                    <td>@Model.Numero</td>
+                                </tr>
+                                <tr>
+                                    <td>Fecha de vencimiento:</td>
+                                    <td>@Model.FechaVencimiento.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td>Saldo:</td>
+                                    <td>@Model.Saldo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

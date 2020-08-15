@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\mezac\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mezac\\.nuget\\packages"
+    ]
+  }
+}

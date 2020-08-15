@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Bienvenido";
+}
+
+
+
+<form id="formulario" asp-action="Pin" asp-controller="Home" method="post">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div class="form-group">
+                <input type="text" name="numeroTarjeta" class="form-control" id="txtCredit-card" placeholder="Ingrese su numero de tarjeta de 16 digitos" readonly>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-3">
+        <div class="col-6 d-flex justify-content-center">
+            <partial name="_TecladoNumerico" />
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5">
+        <div class="col-6 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+            <button id="btnLimpiar" type="button" class="btn btn-secondary">Limpiar</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/lib/Plugins/jquery.inputmask.js"></script>
+    <script src="~/js/teclado_numerico.js"></script>
+    <script>
+        $('#txtCredit-card').inputmask('9999-9999-9999-9999');
+        $('#teclado-numerico input ').tecladoNumerico('txtCredit-card');
+
+        $('#txtCredit-card').on('keypress', function (e) {
+            e.preventDefault();
+        })
+
+        $('#btnLimpiar').click(function () {
+            $('#txtCredit-card').val('');
+        })
+
+        $(':submit').on('click', function () {
+            if ($('#txtCredit-card').inputmask("isComplete")) {
+                document.getElementById('formulario').submit();
+            }
+        })
+    </script>
+}
+
